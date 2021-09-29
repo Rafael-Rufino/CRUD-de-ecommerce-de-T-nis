@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/state-in-constructor */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -17,8 +18,6 @@ class Home extends Component {
   async componentDidMount() {
     const response = await api.get('products');
 
-    this.setState({ products: response.data });
-
     const data = response.data.map((product) => ({
       ...product,
       priceFormatted: formatPrice(product.price),
@@ -26,6 +25,15 @@ class Home extends Component {
 
     this.setState({ products: data });
   }
+
+  handleAddProduct = (product) => {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    });
+  };
 
   render() {
     const { products } = this.state;

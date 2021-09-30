@@ -1,12 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { formatPrice } from '../../util/format';
 import api from '../../services/api';
 import * as CartActions from '../../store/modules/cart/actions';
 import { ProductList } from './styles';
-
 class Home extends Component {
   state = {
     products: [],
@@ -40,6 +41,7 @@ class Home extends Component {
 
             <strong>{product.title}</strong>
             <span>{product.priceFormatted}</span>
+
             <button
               type="button"
               onClick={() => this.handleAddProduct(product.id)}
@@ -48,7 +50,9 @@ class Home extends Component {
                 <MdAddShoppingCart size={16} color="FFF" />
                 {amount[product.id] || 0}
               </div>
-              <span>ADICIONAR AO CARRINHO</span>
+              <Link to="/cart">
+                <a>ADICIONAR AO CARRINHO</a>
+              </Link>
             </button>
           </li>
         ))}

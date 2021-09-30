@@ -47,6 +47,7 @@ export const ProductList = styled.ul`
       div {
         display: flex;
         align-items: center;
+
         padding: 12px;
         background: rgba(0, 0, 0, 0.1);
 
@@ -55,10 +56,12 @@ export const ProductList = styled.ul`
         }
       }
 
-      span {
+      a {
         flex: 1;
         text-align: center;
         font-weight: bold;
+        text-decoration: none;
+        color: white;
       }
     }
   }

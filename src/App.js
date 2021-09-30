@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 import Header from './components/Header';
+
 import store from './store';
 function App() {
   return (

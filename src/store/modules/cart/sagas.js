@@ -1,6 +1,6 @@
 /* eslint-disable function-paren-newline */
 import { call, put, all, select, takeLatest } from 'redux-saga/effects';
-
+import { toast } from 'react-toastify';
 import api from '../../../services/api';
 import { formatPrice } from '../../../util/format';
 import { addToCartSuccess, updateAmount } from './actions';
@@ -16,7 +16,7 @@ function* addToCart({ id }) {
   const amount = currentAmount + 1;
 
   if (amount > stockAmount) {
-    console.log('Limite do estoque acabou');
+    toast.error('Quantidade solictada fora de estoque');
     return;
   }
   if (productExists) {

@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'react-hooks'],
   rules: {
     'prettier/prettier': 0,
     'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.js'] }],
@@ -35,5 +35,9 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/jsx-curly-newline': 'off',
     'jsx-a11y/control-has-associated-label': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    ' import/no-named-as-default-member': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

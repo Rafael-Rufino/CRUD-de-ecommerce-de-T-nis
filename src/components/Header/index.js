@@ -1,12 +1,14 @@
+/* eslint-disable eol-last */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { MdShoppingBasket } from 'react-icons/md';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Cart } from './styles';
 import logo from '../../assets/image/logo.svg';
 // eslint-disable-next-line react/prop-types
-function Header({ cartSize }) {
+export default function Header() {
+  const cartSize = useSelector((state) => state.cart.length);
   return (
     <Container>
       <Link to="/">
@@ -22,6 +24,3 @@ function Header({ cartSize }) {
     </Container>
   );
 }
-export default connect((state) => ({
-  cartSize: state.cart.length,
-}))(Header);
